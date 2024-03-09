@@ -5,10 +5,19 @@ const path = require("path");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.set(express.static(path.join(__dirname,"public")));
 
 
 app.get("/", (req, res) => {
-    res.send("server is working");
+    res.render("home.ejs");
+})
+
+app.get("/profile", (req, res) => {
+    res.render("profile.ejs");
+})
+
+app.get("/result", (req, res) => {
+    res.render("result.ejs");
 })
 
 app.listen(port, () => {
